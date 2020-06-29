@@ -5,7 +5,7 @@ import auth from './auth';
 export default{
     getUserInfo(){
         var jwtToken = auth.auth.getSignInUserSession().getAccessToken().jwtToken;
-        var idToken = auth.auth.getSignInUserSession().getAccessToken().idToken;
+        var idToken = auth.auth.getSignInUserSession().getIdToken().getJwtToken();
         localStorage.setItem("cognitoIdentityToken", idToken);
         const USERINFO_URL = 'https://'+auth.auth.getAppWebDomain() + '/oauth2/userInfo';
         var requestData = {
